@@ -1,0 +1,300 @@
+<div class="col-md-10">
+    
+         
+   <div class="row mb-3">
+      <div class="col-md-4">
+        <div class="mt-5">
+          <table>
+            <tr>
+              <td><i class="fas fa-clock fa-3x mr-2"></i></td>
+              <div>
+                <td id="Hour" class = "clock"></td>
+                <td id="Minut" class = "clock"></td>
+                <td id="Second" class = "clock"></td>
+                <td id="am" class = "clock"><!-- <?='  '.date('a'); ?> --></td>     
+              </div>
+            </tr>
+          </table> 
+        </div>
+      </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+           <div class="mt-5">
+              <i class="fas fa-calendar-week fa-3x mr-2"></i>
+              <p class="date"><?php echo "" . date("d/m/Y") . "<br>"; ?></p>
+           </div>
+      </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$billString = 'P'.date('y').date('m').date('d');
+		$this->db->select('*');
+		$this->db->like('code', $billString);
+		$query = $this->db->get('visit');
+		$regNoId= $query->num_rows();
+		if ($regNoId == 0)
+            {
+                $regno = $billString.'0001';
+            }
+            else
+            {
+                if ($regNoId >= 1 && $regNoId < 9)
+                {
+                    $temp =$regNoId + 1;
+                    $regno = $billString.'000'.(string)$temp;
+                }
+                else if ($regNoId >= 9 && $regNoId < 99)
+                {
+                    $temp = $regNoId + 1;
+                    $regno =$billString.'00'.(string)$temp;
+                }
+				else if ($regNoId >= 99 && $regNoId < 999)
+                {
+                    $temp = $regNoId + 1;
+                    $regno = $billString.'0'.(string)$temp;
+                }
+                else
+                {
+                    $regno = $billString.(string)($regNoId+1);
+                }
+            }
+
+
+
+                    $words = explode(" ", $this->input->post('name'));
+					$acronym = "";
+					foreach ($words as $w) {
+					  $acronym .= $w[0];
+					}
+					$patientID = strtoupper($acronym).strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 4));
+
+
+
+
+
+
+
+
+
+                    Multiple row
+
+        // $count = $this->input->post('rownumbers');
+        // $count = count($_POST)-1;
+        // var_dump($number_of_rows);
+        // for($i=0;$i<$number_of_rows; $i++){
+        //  $data[$i] = array(
+     //           'name' => $this->input->post['name'] 
+  //          );
+        // }
+        // var_dump($data);
+
+        // for($i=0; $i<$count; $i++) {
+        // $data = array(
+  //          'name' => $this->input->post('name'), 
+  //          'position' => $this->input->post('position'), 
+
+  //          );
+        // }
+        // var_dump($data);
+
+
+
+
+
+
+
+        Get Multiple row for insert into database
+
+        $count = $this->input->post('rownumbers');
+        for($i=0; $i<$count;$i++) {
+        $data[$i] = array(  
+              'name' => $this->input->post('name')[$i], 
+              'position' => $this->input->post('position')[$i],
+              'salary' => $this->input->post('salary')[$i],
+              'paidstatus' => $this->input->post('paidstatus')[$i], 
+              'amount' => $this->input->post('amount')[$i],
+              'month' => $this->input->post('month'),
+              'year' => $this->input->post('year')
+                
+            );
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Working test JS First-->
+<!-- <script type="text/javascript">
+  var base_url = "<?php echo base_url(); ?>";
+
+  $("#input").on("click",function(){
+
+        var id = $("#testid").val();
+        var p_name = $("#name").val();
+        var p_mobile = $("#mobile").val();
+        var p_age = $("#age").val();
+        var p_gender = $("#gender").val();
+        var p_blood_group = $("#bloodgroup").val();
+        var patientid = $("#patientsearch").val();
+        var test_name = $("#testsearch").val();
+        var test_price = $("#testprice").val();
+        var t_duration = $("#duration").val();
+        var discount = $("#discount").val();
+        var ref_doc = $("#doctorsearch").val();
+        var ref_doc_id = $("#docid").val();
+        var commission = $("#commission").val();
+
+
+        if(patientid !== null && id !== null){
+            $.ajax({
+                url: base_url + 'tests/add_test_list',
+                data: {
+                    'id' : id,
+                    'p_name' : p_name,
+                    'p_mobile' : p_mobile,
+                    'p_age' : p_age,
+                    'p_gender' : p_gender,
+                    'p_blood_group' : p_blood_group,
+                    'patientid' : patientid,
+                    'test_name' : test_name,
+                    'price' : test_price,
+                    't_duration' : t_duration,
+                    'discount' : discount,
+                    'ref_doc' : ref_doc,
+                    'ref_doc_id' : ref_doc_id,
+                    'commission' : commission,
+                },
+                type: 'POST',
+                success: function(data){
+                  var html="";
+                    var res = $.parseJSON(data);
+                    $(".cart-value").remove();
+                    $.each(res.data, function(key,value) {
+                        var display = '<tr class="cart-value" id="'+ key +'">' +
+                                    '<td class="width-20">'+ value.name +'</td>' +
+                                    '<td class="width-10">'+ value.price +'</td>' +
+                                    '<td class="width-10">'+ value.t_duration +'</td>' +
+                                    '<td class="width-10">'+ value.discount +'</td>' +
+                                    '<td class="width-20">'+ value.ref_doc +'</td>' +
+                                    '<td class="width-10">'+ value.ref_doc_id +'</td>' +
+                                    '<td class="width-10">'+ value.commission +'</td>' +
+                                    '<td class="width-10"><span class="btn btn-danger btn-sm delete-item" data-cart="'+ key +'">x</span></td>' +
+                                    '</tr>';
+                        $("#cartItem tr:last").after(display);
+
+                    });
+
+
+                    $("#cartItem").find("input[type=text], input[type=hidden]").val("");
+                    // $("#preview").html(html);
+                },
+                error: function(){
+                    alert('Something Error');
+                }
+            });
+        }
+
+        else{
+            alert("Please fill in all boxes");
+        }
+    });
+
+
+
+    $(document).on("click",".delete-item",function(e){
+        var rowid = $(this).attr("data-cart");
+        //$el.faLoading();
+        $.get(base_url + 'tests/delete_test_list/'+rowid,
+            function(data,status){
+                if(status == 'success'  && data != 'false'){
+                    $("#"+rowid).remove();
+                    console.log(data);
+                    $("#total").text('Tk '+data);
+
+                }
+            }
+        );
+    });
+
+</script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$pro_select_box .= '<tr>
+                <td class="width-20">'.$value['unit_name'].'</td>
+                
+                <td class="width-60"><input class="form-control" id="'.$value['unit_name'].'" name="gValue['.$value['unit_name'].']"></input></td>
+                <td class="width-20">'.$value['base_value'].' '.$mname['name'].'</td>
+              </tr>
+            ';

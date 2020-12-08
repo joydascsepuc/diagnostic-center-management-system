@@ -1,0 +1,202 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto Slab', serif;
+	background-color: #EFF0F4;
+}
+
+.form-control{
+	margin-bottom: 2px;
+	overflow: scroll;
+	border : 1px solid black;
+	border-radius: 0;
+	height: calc(1em + .75rem + 2px);
+	padding: .123rem .75rem;
+}
+
+.navbar{
+	margin: 0 8px;
+	padding: 0;
+	font-size: 16px;
+}
+
+.dropdown-menu{
+	background-color: inherit;
+	border-style: none;
+}
+
+.navbarsection{
+	height: 100vh;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+.col-md-10{
+	height: 100vh;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+	width: 0px;  /* Remove scrollbar space */
+	background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+
+.fas,.fab{
+	background-color: inherit;
+}
+
+.information{
+	height: 5rem !important;
+	height: 5rem;
+	margin-bottom: 10px;
+	font-size: 18px;
+	color: black;
+	font-weight: bold;
+	text-align: left;
+	padding: 15px;
+
+}
+
+.dropdown-item{
+	margin: 0;
+	padding: 0;
+}
+
+.nav-item,.nav-link{
+	margin: 0;
+	padding: 2px 0;
+	color: rgba(98, 101, 228, 1);
+}
+
+::selection {
+	color: red;
+	background: yellow;
+}
+
+
+
+#profile{
+	color: rgba(98, 101, 228, 1);
+}
+
+
+
+.clock{
+
+	font-size: 2rem;
+	color: rgba(98, 101, 228, 1);
+	font-weight: bold;
+	padding-bottom: 0 px;
+}
+
+.date{
+
+	display: inline-block;
+	position: relative;
+	font-size: 24px;
+	font-weight: bold;
+	bottom: 7px;
+	color: rgba(98, 101, 228, 1);
+}
+
+.login{
+			
+	height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.design{
+	border : 3px solid black;
+	margin: 0px;
+	padding: 4rem 1rem;
+
+}
+
+
+.headings{
+
+	font-weight: bold;
+	font-size: 1.1rem; 
+}
+
+.loginInputs{
+
+	font-size: 18px;
+	height: 2rem;
+}
+
+.form-control:focus {
+  border-color: black !important;
+  border-color: #cccccc;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+#loginbutton{
+	border : 2px solid black;
+	font-weight: bold;
+}
+
+#mainindex{
+	height: 100vh;
+	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+}
+
+/*Dash Board*/
+.dropdown-toggle::after{
+
+	display: none;
+}
+
+
+.dropdown-item:hover {
+    background-color: transparent !important;
+}
+
+.dropdown-item{
+	color: black;
+	font-weight: bold;
+	font-size: 14px;
+	color: black;
+}
+
+.nav-link{
+
+	font-weight: bold;
+
+}
+
+.fas{
+
+	margin-top: 5px;
+}
+
+input[type=search]{
+	border: 2px solid rgba(98, 101, 228, 1);
+	border-radius: 5px 0;
+}
+
+.nav-item, .nav-link{
+	color: black;
+}
+
+.dropdown-divider{
+	border-color: black !important;
+	margin: 4px 0 2px 0 !important;
+	width: 90%;
+}
+
+
+input{
+	font-size: 13px !important;
+}
+
+input[type=date]{
+	overflow: hidden;
+}
