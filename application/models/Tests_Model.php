@@ -402,7 +402,7 @@ class Tests_Model extends CI_Model {
         </div>
       </div>
 
-      <footer>&copy; Copyright: Ingenuity Software Limited, Bangladesh</footer>
+      <footer>&copy; Copyright:Softsource Software System Limited, Bangladesh</footer>
 </div>
 </body>
 <script type="text/javascript">
