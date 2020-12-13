@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	
 
-		/*public function addpatient(){
+		public function addpatient(){
 
 			$admintype = $this->session->userdata('admintype');
 			if(!$this->session->userdata('logged_in') OR (!($admintype === "admin"))) {
@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					redirect('redirect/index');
 				}
 
-			/*$data = $this->load->('patients/view');
+			$data = $this->load->('patients/view');
 
 			$data['patients'] = $this->Patients_Model->view();
 
@@ -145,7 +145,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->load->view('pages/departments/viewall',$data);
 			$this->load->view('templates/footer');
 		}
-*/
+
 		public function setting(){
 
 			$admintype = $this->session->userdata('admintype');
