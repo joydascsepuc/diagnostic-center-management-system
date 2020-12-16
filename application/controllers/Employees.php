@@ -134,9 +134,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					redirect('redirect/index');
 				}
 			$data['employees'] = $this->Employee_Model->get_all_employee();
-
+			
 			if($admintype === "super"){
-
 				$this->load->view('templates/header');
 				$this->load->view('pages/supers/index');
 				$this->load->view('pages/employee/viewAllEmployee',$data);
