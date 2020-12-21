@@ -140,8 +140,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					redirect('redirect/index');
 				}
 			$this->load->view('templates/header');
-			$this->load->view('pages/supers/index');
-			$this->load->view('pages/users/adduser');
+			$this->load->view('pages/supers/index'); 
+			$this->load->view('pages/users/addUserUpdate');
 			$this->load->view('templates/footer');
 		}
 
