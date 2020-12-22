@@ -166,7 +166,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-		public function view_doctors_list(){
+		/*public function view_doctors_list(){
 
 			$admintype = $this->session->userdata('admintype');
 			if(!$this->session->userdata('logged_in')) {
@@ -195,6 +195,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->load->view('templates/header');
 				$this->load->view('pages/nurses/index');
 				$this->load->view('pages/employee/special_view',$data);
+				$this->load->view('templates/footer');
+			}else{
+				redirect('redirect/index');
+			}
+
+		}*/
+
+		public function view_doctors_list(){
+
+			$admintype = $this->session->userdata('admintype');
+			if(!$this->session->userdata('logged_in')) {
+					redirect('redirect/index');
+				}
+
+			$data['doctors'] = $this->Employee_Model->get_all_doctors();
+
+			if($admintype === "super"){
+
+				$this->load->view('templates/header');
+				$this->load->view('pages/supers/index');
+				$this->load->view('pages/employee/view_all_doctors',$data);
+				$this->load->view('templates/footer');
+			}elseif($admintype === "admin"){
+				$this->load->view('templates/header');
+				$this->load->view('pages/admins/index');
+				$this->load->view('pages/employee/view_all_doctors',$data);
+				$this->load->view('templates/footer');
+			}elseif($admintype === "doctor"){
+				$this->load->view('templates/header');
+				$this->load->view('pages/doctors/index');
+				$this->load->view('pages/employee/doctorView',$data);
+				$this->load->view('templates/footer');
+			}elseif($admintype === "nurse"){
+				$this->load->view('templates/header');
+				$this->load->view('pages/nurses/index');
+				$this->load->view('pages/employee/doctorView',$data);
 				$this->load->view('templates/footer');
 			}else{
 				redirect('redirect/index');
