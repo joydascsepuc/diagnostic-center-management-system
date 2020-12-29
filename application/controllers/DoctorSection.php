@@ -203,7 +203,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if($admintype === "super"){
 				$this->load->view('templates/header');
 				$this->load->view('pages/supers/index');
-				$this->load->view('pages/doctorsSection/payDoctor',$data);
+				$this->load->view('pages/doctorsSection/payDoc',$data);
 				$this->load->view('templates/footer');
 			}/*elseif($admintype === "admin"){
 				$this->load->view('templates/header');
