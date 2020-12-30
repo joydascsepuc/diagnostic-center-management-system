@@ -252,12 +252,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if($admintype === "super"){
 				$this->load->view('templates/header');
 				$this->load->view('pages/supers/index');
-				$this->load->view('pages/doctorsSection/paymentHistory',$data);
+				$this->load->view('pages/doctorsSection/payHis',$data);
 				$this->load->view('templates/footer');
 			}elseif($admintype === "admin"){
 				$this->load->view('templates/header');
 				$this->load->view('pages/admins/index');
-				$this->load->view('pages/doctorsSection/paymentHistory',$data);
+				$this->load->view('pages/doctorsSection/payHis',$data);
 				$this->load->view('templates/footer');
 			}else{
 				redirect('redirect/index');
